@@ -1,323 +1,176 @@
-"<!DOCTYPE html>
-<html lang=\"en\">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <title>Privacy Policy — Sleep Train</title>
-    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
-    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
-    <link href=\"https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap\" rel=\"stylesheet\">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Sleep Train</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Tailwind Typography Plugin for beautiful reading formatting -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            100: '#f3e8ff',
+                            400: '#c084fc',
+                            600: '#9333ea',
+                            900: '#3b0764',
+                            950: '#1e0533',
+                        }
+                    },
+                    typography: (theme) => ({
+                        invert: {
+                            css: {
+                                '--tw-prose-body': theme('colors.slate[300]'),
+                                '--tw-prose-headings': theme('colors.brand[100]'),
+                                '--tw-prose-links': theme('colors.brand[400]'),
+                                '--tw-prose-bold': theme('colors.white'),
+                                '--tw-prose-hr': theme('colors.brand[900]'),
+                                '--tw-prose-quotes': theme('colors.brand[100]'),
+                                '--tw-prose-quote-borders': theme('colors.brand[600]'),
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --bg-deep: #050507;
-            --bg-card: rgba(255, 255, 255, 0.02);
-            --border-subtle: rgba(255, 255, 255, 0.04);
-            --text-primary: rgba(255, 255, 255, 0.72);
-            --text-secondary: rgba(255, 255, 255, 0.38);
-            --text-dim: rgba(255, 255, 255, 0.18);
-            --accent-warm: rgba(255, 210, 140, 0.7);
-            --accent-warm-dim: rgba(255, 210, 140, 0.25);
-            --accent-blue: rgba(126, 184, 216, 0.5);
-            --glow-warm: rgba(255, 190, 100, 0.06);
-        }
-
+        /* Subtle animated night sky gradient */
         body {
-            background: var(--bg-deep);
-            color: var(--text-primary);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-weight: 300;
-            line-height: 1.85;
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #0f0c29, #1a1a24);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            background-attachment: fixed;
         }
 
-        /* Subtle ambient glow at the top — like moonlight */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -40vh;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80vw;
-            height: 60vh;
-            background: radial-gradient(ellipse, rgba(255, 210, 140, 0.03) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* Subtle stars effect */
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image:
-                radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,0.08), transparent),
-                radial-gradient(1px 1px at 42% 68%, rgba(255,255,255,0.06), transparent),
-                radial-gradient(1px 1px at 73% 15%, rgba(255,255,255,0.07), transparent),
-                radial-gradient(1px 1px at 88% 82%, rgba(255,255,255,0.05), transparent),
-                radial-gradient(1px 1px at 31% 91%, rgba(255,255,255,0.06), transparent),
-                radial-gradient(1px 1px at 56% 42%, rgba(255,255,255,0.04), transparent),
-                radial-gradient(1px 1px at 8% 56%, rgba(255,255,255,0.07), transparent),
-                radial-gradient(1px 1px at 95% 38%, rgba(255,255,255,0.05), transparent);
-            pointer-events: none;
-            z-index: 0;
+        /* Glassmorphism effects */
+        .glass-panel {
+            background: rgba(20, 15, 35, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(192, 132, 252, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        .page {
-            position: relative;
-            z-index: 1;
-            max-width: 580px;
-            margin: 0 auto;
-            padding: 4rem 2rem 5rem;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 3.5rem;
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 12, 41, 0.9);
         }
-
-        .train-icon {
-            width: 48px;
-            height: 48px;
-            margin: 0 auto 1.5rem;
-            opacity: 0.6;
+        ::-webkit-scrollbar-thumb {
+            background: #4c1d95;
+            border-radius: 4px;
         }
-
-        .app-name {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 1.1rem;
-            font-weight: 400;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--accent-warm);
-            margin-bottom: 2rem;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7c3aed;
         }
-
-        .page-title {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 2.4rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.85);
-            letter-spacing: 0.02em;
-            line-height: 1.2;
-        }
-
-        .updated {
-            display: inline-block;
-            margin-top: 1rem;
-            font-size: 0.72rem;
-            font-weight: 400;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--text-dim);
-        }
-
-        /* Sections */
-        .section {
-            margin-bottom: 2.5rem;
-        }
-
-        .section-title {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 1.15rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.65);
-            letter-spacing: 0.06em;
-            margin-bottom: 0.8rem;
-        }
-
-        p {
-            font-size: 0.88rem;
-            margin-bottom: 0.9rem;
-            color: var(--text-primary);
-        }
-
-        .highlight {
-            color: var(--accent-warm);
-            font-weight: 400;
-        }
-
-        .emphasis {
-            color: rgba(255, 255, 255, 0.82);
-            font-weight: 400;
-        }
-
-        /* List */
-        .detail-list {
-            list-style: none;
-            padding: 0;
-            margin: 0.8rem 0 1rem;
-        }
-
-        .detail-list li {
-            position: relative;
-            padding-left: 1.4rem;
-            margin-bottom: 0.45rem;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .detail-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.65em;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: var(--accent-warm-dim);
-        }
-
-        /* Divider */
-        .divider {
-            border: none;
-            height: 1px;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                var(--border-subtle) 20%,
-                rgba(255, 210, 140, 0.08) 50%,
-                var(--border-subtle) 80%,
-                transparent 100%
-            );
-            margin: 3rem 0;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .footer p {
-            color: var(--text-dim);
-            font-size: 0.7rem;
-            letter-spacing: 0.08em;
-            margin-bottom: 0.3rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 480px) {
-            .page { padding: 3rem 1.25rem 4rem; }
-            .page-title { font-size: 2rem; }
-        }
-
-        /* Fade-in animation */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .header { animation: fadeUp 1s ease 0.1s both; }
-        .section:nth-child(2) { animation: fadeUp 0.8s ease 0.3s both; }
-        .section:nth-child(3) { animation: fadeUp 0.8s ease 0.4s both; }
-        .section:nth-child(4) { animation: fadeUp 0.8s ease 0.5s both; }
-        .section:nth-child(5) { animation: fadeUp 0.8s ease 0.6s both; }
-        .section:nth-child(6) { animation: fadeUp 0.8s ease 0.7s both; }
-        .divider { animation: fadeUp 0.8s ease 0.75s both; }
-        .section:nth-child(8) { animation: fadeUp 0.8s ease 0.8s both; }
-        .section:nth-child(9) { animation: fadeUp 0.8s ease 0.85s both; }
-        .footer { animation: fadeUp 0.8s ease 0.9s both; }
     </style>
 </head>
-<body>
-    <div class=\"page\">
-        <header class=\"header\">
-            <!-- Train SVG icon -->
-            <svg class=\"train-icon\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">
-                <path d=\"M12 36L8 42H40L36 36\" stroke=\"rgba(255,210,140,0.35)\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>
-                <rect x=\"10\" y=\"10\" width=\"28\" height=\"26\" rx=\"4\" stroke=\"rgba(255,210,140,0.35)\" stroke-width=\"1.5\"/>
-                <rect x=\"16\" y=\"16\" width=\"16\" height=\"10\" rx=\"2\" stroke=\"rgba(255,210,140,0.25)\" stroke-width=\"1\"/>
-                <circle cx=\"17\" cy=\"32\" r=\"2\" fill=\"rgba(255,210,140,0.2)\"/>
-                <circle cx=\"31\" cy=\"32\" r=\"2\" fill=\"rgba(255,210,140,0.2)\"/>
-                <line x1=\"24\" y1=\"6\" x2=\"24\" y2=\"10\" stroke=\"rgba(255,210,140,0.25)\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>
-                <circle cx=\"24\" cy=\"5\" r=\"1.5\" fill=\"rgba(255,210,140,0.15)\"/>
-            </svg>
-            <div class=\"app-name\">Sleep Train</div>
-            <h1 class=\"page-title\">Privacy Policy</h1>
-            <span class=\"updated\">Last updated — February 25, 2026</span>
-        </header>
+<body class="text-slate-300 min-h-screen selection:bg-brand-600 selection:text-white">
 
-        <div class=\"section\">
-            <h2 class=\"section-title\">Overview</h2>
-            <p>
-                Sleep Train is a gamified companion for behavioral infant sleep training.
-                We are committed to protecting your privacy — and the simplest way to do that
-                is to <span class=\"highlight\">not collect any data at all</span>.
-            </p>
+    <!-- Header Navigation -->
+    <header class="fixed top-0 w-full z-50 glass-panel border-b-0 border-t-0 border-l-0 border-r-0 border-b border-brand-900/50">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <!-- Simple moon/train icon placeholder -->
+                <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+                <span class="text-xl font-bold tracking-wider text-brand-100 uppercase">Sleep Train</span>
+            </div>
+            <a href="#" class="text-sm font-medium text-brand-400 hover:text-brand-100 transition-colors duration-200">
+                Back to Game
+            </a>
         </div>
+    </header>
 
-        <div class=\"section\">
-            <h2 class=\"section-title\">Data Collection</h2>
-            <p>
-                <span class=\"emphasis\">Sleep Train does not collect, store, or transmit any personal data.</span>
-            </p>
-            <ul class=\"detail-list\">
-                <li>No account or registration required</li>
-                <li>No email, name, or personal information collected</li>
-                <li>No analytics or tracking services</li>
-                <li>No third-party advertising</li>
-                <li>No cookies or web beacons</li>
-            </ul>
-        </div>
+    <!-- Main Content -->
+    <main class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        
+        <!-- Document Container -->
+        <article class="glass-panel rounded-2xl p-8 sm:p-12 relative overflow-hidden">
+            
+            <!-- Decorative blur blob -->
+            <div class="absolute top-0 left-0 w-full h-32 bg-brand-600/10 blur-[100px] pointer-events-none"></div>
 
-        <div class=\"section\">
-            <h2 class=\"section-title\">On-Device Data</h2>
-            <p>
-                Sleep Train stores session data (timer durations and preferences)
-                <span class=\"emphasis\">locally on your device only</span>. This data:
-            </p>
-            <ul class=\"detail-list\">
-                <li>Never leaves your device</li>
-                <li>Is not accessible to us or any third party</li>
-                <li>Is automatically removed if you uninstall the app</li>
-                <li>Can be cleared at any time through your device settings</li>
-            </ul>
-        </div>
+            <header class="mb-12 border-b border-brand-900/50 pb-8 relative z-10">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">Privacy Policy</h1>
+                <p class="text-slate-400 flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    Last Updated: <span class="text-brand-100 ml-1 font-medium">October 24, 2024</span>
+                </p>
+            </header>
 
-        <div class=\"section\">
-            <h2 class=\"section-title\">Internet Usage</h2>
-            <p>
-                The app functions fully offline. No personal data is transmitted at any time.
-            </p>
-        </div>
+            <!-- Prose formatting applies beautiful typographic defaults to raw HTML elements like h2, p, ul -->
+            <div class="prose prose-invert prose-lg max-w-none relative z-10">
+                
+                <p class="lead text-xl text-slate-300">
+                    Welcome to Sleep Train. We respect your privacy and are committed to protecting it. This privacy policy explains how we collect, use, and safeguard your information when you play our game.
+                </p>
 
-        <div class=\"section\">
-            <h2 class=\"section-title\">Children's Privacy</h2>
-            <p>
-                Sleep Train is a tool for parents and guardians. The app does not knowingly
-                collect any information from children or any user.
-            </p>
-        </div>
+                <h2>1. Information We Collect</h2>
+                <p>We believe in data minimization. Sleep Train is designed to be a relaxing experience, not a data-harvesting tool. We collect the following types of information:</p>
+                <ul>
+                    <li><strong>Gameplay Data:</strong> Progress, high scores, and unlocked features. This is primarily stored locally on your device.</li>
+                    <li><strong>Usage Data:</strong> Anonymous analytics (e.g., session length, crash reports) to help us improve the game's performance and stability.</li>
+                </ul>
 
-        <hr class=\"divider\">
+                <h2>2. How We Use Your Information</h2>
+                <p>The information we collect is used solely to provide and improve the Sleep Train experience. Specifically, we use it to:</p>
+                <ul>
+                    <li>Save your progress and preferences.</li>
+                    <li>Analyze game performance to fix bugs and optimize the experience.</li>
+                    <li>Respond to your customer service requests.</li>
+                </ul>
 
-        <div class=\"section\">
-            <h2 class=\"section-title\">Changes to This Policy</h2>
-            <p>
-                If we update this privacy policy, the revised version will be posted at this URL.
-                Continued use of the app constitutes acceptance of any changes.
-            </p>
-        </div>
+                <h2>3. Data Storage and Security</h2>
+                <p>Your local gameplay data is stored securely on your device. Any anonymous analytics transmitted to our servers are encrypted during transit and stored on secure servers. While no method of transmission over the internet is 100% secure, we use commercially acceptable means to protect your data.</p>
 
-        <div class=\"section\">
-            <h2 class=\"section-title\">Contact</h2>
-            <p>
-                If you have questions about this privacy policy, you may reach us through the
-                app's listing page on the Apple App Store or Google Play Store.
-            </p>
-        </div>
+                <h2>4. Third-Party Services</h2>
+                <p>We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. We may use trusted third-party services (like game engine analytics) that assist us in operating our game, so long as those parties agree to keep this information confidential.</p>
 
-        <footer class=\"footer\">
-            <p>&copy; 2026 The Digital Citadel. All rights reserved.</p>
-        </footer>
-    </div>
+                <h2>5. Children's Privacy</h2>
+                <p>Sleep Train is safe for all ages. We do not knowingly collect personal information from children under the age of 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us, and we will delete such data immediately.</p>
+
+                <h2>6. Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page and updating the "Last Updated" date at the top.</p>
+
+                <h2>7. Contact Us</h2>
+                <p>If you have any questions or concerns about this privacy policy or our data practices, please reach out to us:</p>
+                <div class="bg-brand-950/50 rounded-lg p-6 border border-brand-900 mt-6">
+                    <p class="m-0 text-brand-100 flex items-center">
+                        <svg class="w-5 h-5 mr-3 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        <a href="mailto:support@sleeptraingame.com" class="hover:text-white transition-colors">support@sleeptraingame.com</a>
+                    </p>
+                </div>
+
+            </div>
+        </article>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="border-t border-brand-900/50 py-8 text-center text-sm text-slate-500">
+        <p>&copy; 2026 The Digital Citadel. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
-"
