@@ -1,168 +1,212 @@
-"<!DOCTYPE html>
-<html lang=\"en\">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <title>Privacy Policy - Sleep Train</title>
-    
-    <!-- Load Tailwind CSS -->
-    <script src=\"https://cdn.tailwindcss.com\"></script>
-    <!-- Load Tailwind Typography Plugin for beautiful reading formatting -->
-    <script src=\"https://cdn.tailwindcss.com?plugins=typography\"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            100: '#f3e8ff',
-                            400: '#c084fc',
-                            600: '#9333ea',
-                            900: '#3b0764',
-                            950: '#1e0533',
-                        }
-                    },
-                    typography: (theme) => ({
-                        invert: {
-                            css: {
-                                '--tw-prose-body': theme('colors.slate[300]'),
-                                '--tw-prose-headings': theme('colors.brand[100]'),
-                                '--tw-prose-links': theme('colors.brand[400]'),
-                                '--tw-prose-bold': theme('colors.white'),
-                                '--tw-prose-hr': theme('colors.brand[900]'),
-                                '--tw-prose-quotes': theme('colors.brand[100]'),
-                                '--tw-prose-quote-borders': theme('colors.brand[600]'),
-                            },
-                        },
-                    }),
-                }
-            }
-        }
-    </script>
-
-    <style>
-        /* Subtle animated night sky gradient */
-        body {
-            background: linear-gradient(-45deg, #0f0c29, #302b63, #0f0c29, #1a1a24);
-            background-size: 400% 400%;
-            animation: gradientBG 20s ease infinite;
-            background-attachment: fixed;
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Glassmorphism effects */
-        .glass-panel {
-            background: rgba(20, 15, 35, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(192, 132, 252, 0.15);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: rgba(15, 12, 41, 0.9);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4c1d95;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #7c3aed;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Train — Privacy Policy</title>
+  <meta name="description" content="Privacy policy for Sleep Train, a calm night train game — a love story and a timer. Local-only data, no ads, no accounts." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://videogamesprof.github.io/sleeptrain-privacy/" />
+  <style>
+    :root {
+      --bg0: #0a1220;
+      --bg1: #121c30;
+      --text: #e8eef8;
+      --muted: #a8b0c0;
+      --accent: #d4b896;
+      --line: rgba(212, 184, 150, 0.22);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      line-height: 1.65;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, #1a2744 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg0));
+      min-height: 100vh;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(10, 18, 32, 0.85);
+      border-bottom: 1px solid var(--line);
+      padding: 0.9rem 1.25rem;
+      z-index: 10;
+    }
+    header .inner, main {
+      max-width: 44rem;
+      margin: 0 auto;
+    }
+    header .brand {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-size: 0.95rem;
+    }
+    main { padding: 2.5rem 1.25rem 4rem; }
+    article {
+      background: rgba(18, 28, 48, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+    @media (min-width: 640px) {
+      article { padding: 2.5rem 2.25rem; }
+    }
+    h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      line-height: 1.2;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--line);
+    }
+    h2 {
+      margin: 1.75rem 0 0.6rem;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+    p, li { color: var(--text); }
+    p.lead { font-size: 1.1rem; color: #d7deea; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.35rem 0; }
+    a { color: #9ec1ff; }
+    a:hover { color: #c5daff; }
+    strong { color: #fff; }
+    footer {
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
 </head>
-<body class=\"text-slate-300 min-h-screen selection:bg-brand-600 selection:text-white\">
+<body>
+  <header>
+    <div class="inner">
+      <div class="brand">Sleep Train</div>
+    </div>
+  </header>
 
-    <!-- Header Navigation -->
-    <header class=\"fixed top-0 w-full z-50 glass-panel border-b-0 border-t-0 border-l-0 border-r-0 border-b border-brand-900/50\">
-        <div class=\"max-w-4xl mx-auto px-6 py-4 flex justify-between items-center\">
-            <div class=\"flex items-center space-x-2\">
-                <svg class=\"w-6 h-6 text-brand-400\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">
-                    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z\"></path>
-                </svg>
-                <span class=\"text-xl font-bold tracking-wider text-brand-100 uppercase\">Sleep Train</span>
-            </div>
-        </div>
-    </header>
+  <main>
+    <article>
+      <h1>Privacy Policy</h1>
+      <p class="meta">
+        <strong>App:</strong> Sleep Train<br />
+        <strong>Package:</strong> com.thedigitalcitadel.sleeptrain<br />
+        <strong>Developer:</strong> Dr. Kris Alexander / The Digital Citadel<br />
+        <strong>Last updated:</strong> 13 July 2026
+      </p>
 
-    <!-- Main Content -->
-    <main class=\"pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto\">
-        
-        <!-- Document Container -->
-        <article class=\"glass-panel rounded-2xl p-8 sm:p-12 relative overflow-hidden\">
-            
-            <!-- Decorative blur blob -->
-            <div class=\"absolute top-0 left-0 w-full h-32 bg-brand-600/10 blur-[100px] pointer-events-none\"></div>
+      <p class="lead">
+        Sleep Train is a <strong>calm night train game — a love story and a timer</strong> —
+        inspired by how its creator paced himself for his wife and babies.
+        It is <strong>not medical advice</strong> and does <strong>not promise outcomes</strong> about anyone’s sleep.
+      </p>
+      <p>
+        We respect your privacy by keeping the app simple:
+        <strong>no account, no ads, no analytics SDKs, and no upload of your night history to our servers.</strong>
+      </p>
 
-            <header class=\"mb-12 border-b border-brand-900/50 pb-8 relative z-10\">
-                <h1 class=\"text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4\">Privacy Policy</h1>
-                <p class=\"text-slate-400 flex items-center\">
-                    <svg class=\"w-4 h-4 mr-2\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
-                        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z\"></path>
-                    </svg>
-                    Last Updated: <span class=\"text-brand-100 ml-1 font-medium\">February 25, 2026</span>
-                </p>
-            </header>
+      <h2>1. Summary</h2>
+      <ul>
+        <li>No account or registration is required.</li>
+        <li>Preferences and night history stay <strong>on your device only</strong>.</li>
+        <li>No personal identifiers (name, email, phone) are collected by the app.</li>
+        <li>No advertising networks and no third-party analytics SDKs are included.</li>
+        <li>The app is designed for <strong>parents / caregivers</strong>, not for children as end users.</li>
+      </ul>
 
-            <div class=\"prose prose-invert prose-lg max-w-none relative z-10\">
-                
-                <p class=\"lead text-xl text-slate-300\">
-                    Welcome to Sleep Train — a gamified companion for behavioral infant sleep training. We respect your privacy and are committed to protecting it. The simplest way to do that is to <strong>not collect any data at all</strong>.
-                </p>
+      <h2>2. Data stored on your device</h2>
+      <p>Sleep Train may save the following locally in the app’s private storage on your phone:</p>
+      <ul>
+        <li>Preference toggles (for example phase music, vibration, demo timing).</li>
+        <li>Whether you have accepted disclaimers and seen the intro story.</li>
+        <li>Night progress history used for Morning Report / Progress (for example quiet time, wake times, optional firefly stats).</li>
+      </ul>
+      <p>
+        This data does <strong>not</strong> leave your device through Sleep Train.
+        Clearing app data, uninstalling, or using in-app <strong>Reset Stats</strong> removes stored history as described in the app.
+      </p>
 
-                <h2>1. Data Collection</h2>
-                <p>Sleep Train does not collect, store, or transmit any personal data. We believe your privacy is non-negotiable.</p>
-                <ul>
-                    <li><strong>No account or registration</strong> is required to use the app.</li>
-                    <li><strong>No personal information</strong> — no email, name, phone number, or identifiers are ever collected.</li>
-                    <li><strong>No analytics or tracking</strong> — we do not use any analytics services, crash reporters, or usage trackers.</li>
-                    <li><strong>No advertising</strong> — the app contains no ads and no ad-related tracking.</li>
-                    <li><strong>No cookies or web beacons</strong> of any kind.</li>
-                </ul>
+      <h2>3. Permissions</h2>
+      <ul>
+        <li>
+          <strong>Vibration</strong> — optional haptic cues (for example a leave-room rumble after a Loving check-in
+          until you answer the quiet prompt, plus soft UI haptics). You can turn vibration off in the pause menu.
+        </li>
+        <li>
+          <strong>Keep screen on</strong> — while a session is active so the phone does not sleep mid-ride.
+          This is released when the app is backgrounded or paused. The night timer also pauses if you leave the app
+          or lock the screen, so progress does not advance while you are away.
+        </li>
+      </ul>
+      <p>
+        Sleep Train does not request access to your contacts, camera, microphone, precise location,
+        photos, or files outside the app’s private storage.
+      </p>
 
-                <h2>2. On-Device Data</h2>
-                <p>Sleep Train stores session data — such as timer durations and your preferences — <strong>locally on your device only</strong>. This data:</p>
-                <ul>
-                    <li>Never leaves your device.</li>
-                    <li>Is not accessible to us or any third party.</li>
-                    <li>Is automatically removed if you uninstall the app.</li>
-                    <li>Can be cleared at any time through your device settings.</li>
-                </ul>
+      <h2>4. Internet and third parties</h2>
+      <p>
+        Core gameplay is designed to work offline. Sleep Train does not include third-party advertising SDKs,
+        analytics SDKs, crash-reporting SDKs, or social login.
+        We do not sell personal data.
+      </p>
+      <p>
+        If you obtained the app from Google Play, Google may process install and store-related data under
+        <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google’s Privacy Policy</a>.
+        That processing is controlled by Google, not by Sleep Train’s in-app logic.
+      </p>
 
-                <h2>3. Internet Usage</h2>
-                <p>The app functions fully offline. No network requests carrying personal data are made at any time. No information is transmitted to any server.</p>
+      <h2>5. Children</h2>
+      <p>
+        Sleep Train is intended for <strong>parents and caregivers</strong>.
+        It is not directed at children as the primary end users.
+        Medical and photosensitive disclaimers are shown before first use.
+        Because the app does not collect personal information from users, we do not knowingly collect children’s data.
+      </p>
 
-                <h2>4. Third-Party Services</h2>
-                <p>Sleep Train does not integrate with any third-party services that collect user data. There are no third-party SDKs, analytics platforms, or advertising networks embedded in the app.</p>
+      <h2>6. Medical disclaimer</h2>
+      <p>
+        Sleep Train is a game experience. It does <strong>not</strong> provide medical advice, diagnosis, treatment,
+        or guaranteed sleep outcomes. Always consult your pediatrician or other qualified clinician whenever you have
+        health concerns about your child.
+      </p>
 
-                <h2>5. Children's Privacy</h2>
-                <p>Sleep Train is a tool designed for parents and guardians. The app does not knowingly collect any information from children or any user of any age. Because no data is collected at all, there is no risk of children's data being compromised.</p>
+      <h2>7. Changes</h2>
+      <p>
+        We may update this policy when the app’s data practices change.
+        The “Last updated” date at the top will change when we do.
+        The current policy is always published at this URL.
+      </p>
 
-                <h2>6. Changes to This Policy</h2>
-                <p>We may update this privacy policy from time to time. Any changes will be posted at this URL with an updated \"Last Updated\" date. Continued use of the app constitutes acceptance of any changes.</p>
+      <h2>8. Contact</h2>
+      <p>
+        Developer: <strong>Dr. Kris Alexander / The Digital Citadel</strong><br />
+        Website: <a href="https://www.drkrisalexander.com" rel="noopener noreferrer">www.drkrisalexander.com</a><br />
+        Privacy page issues / corrections:
+        <a href="https://github.com/VideoGamesProf/sleeptrain-privacy/issues" rel="noopener noreferrer">
+          github.com/VideoGamesProf/sleeptrain-privacy/issues
+        </a>
+      </p>
+      <p>
+        For store-related support, use the contact email shown on the Google Play listing for Sleep Train
+        (once the listing is published).
+      </p>
+    </article>
 
-                <h2>7. Contact</h2>
-                <p>If you have any questions or concerns about this privacy policy, you may reach us through the app's listing page on the Apple App Store or Google Play Store.</p>
-
-            </div>
-        </article>
-    </main>
-
-    <!-- Simple Footer -->
-    <footer class=\"border-t border-brand-900/50 py-8 text-center text-sm text-slate-500\">
-        <p>&copy; 2026 The Digital Citadel. All rights reserved.</p>
+    <footer>
+      Package ID <code>com.thedigitalcitadel.sleeptrain</code> · Godot Android release
     </footer>
-
+  </main>
 </body>
 </html>
-"
